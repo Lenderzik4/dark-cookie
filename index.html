@@ -3,16 +3,17 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <meta name="description" content="Defina suas preferências de cookies no site Suplemente Mais e melhore sua experiência.">
+  <meta name="description" content="Defina suas preferências de cookies no site Aproveite a promo do dia e melhore sua experiência.">
   <meta name="robots" content="noindex, nofollow">
   <meta property="og:type" content="website">
-  <meta property="og:url" content="https://darknesshop.com/cookies-preferences.html">
-  <meta property="og:title" content="Suplemente Mais - Configuração de Cookies">
-  <meta property="og:description" content="Gerencie seus cookies no site Suplemente Mais para uma melhor navegação.">
-  <meta property="og:image" content="https://darknesshop.com/media/images/cookies-banner.png">
-  <title>Preferências de Cookies - Suplemente Mais</title>
+  <meta property="og:url" content="https://duxhumanhealthfit.com/cookies-preferences.html">
+  <meta property="og:title" content=" Aproveite a promo do dia - Configuração de Cookies">
+  <meta property="og:description" content="Gerencie seus cookies no site Aproveite a promo do dia para uma melhor navegação.">
+  <meta property="og:image" content="https://duxhumanhealthfit.com/media/images/cookies-banner.png">
+  <title>Preferências de Cookies - Aproveite a promo do dia </title>
   
-  <script id="_wau9f7">var _wau = _wau || []; _wau.push(["small", "08yo2p42ny", "9f7"]);</script><script async src="//waust.at/s.js"></script>
+  <script id="_wau9f7">var _wau = _wau || []; _wau.push(["small", "08yo2p42ny", "9f7"]);</script>
+  <script async src="//waust.at/s.js"></script>
 
   <style>
     body {
@@ -31,7 +32,6 @@
       border-radius: 10px;
       box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
       text-align: center;
-      width: 300px;
     }
 
     .banner-container h2 {
@@ -48,17 +48,15 @@
 
     .action-buttons {
       display: flex;
-      justify-content: space-between;
-      gap: 10px;
+      justify-content: space-evenly;
     }
 
     .button {
-      flex: 1;
       padding: 10px 20px;
       border: none;
       border-radius: 5px;
       font-size: 16px;
-      cursor: pointer; 
+      cursor: pointer;
     }
 
     .accept {
@@ -81,57 +79,34 @@
     <h2>Configuração de Cookies</h2>
     <p>Este site utiliza cookies para oferecer a melhor experiência. Escolha sua configuração preferida:</p>
     <div class="action-buttons">
-      <button class="button accept" onclick="window.location.href='https://loja.darknesshop.com/'">Aceitar Cookies</button>
-      <button class="button reject" onclick="window.location.href='https://loja.darknesshop.com/'">Recusar Cookies</button>
+      <button class="button accept" onclick="acceptCookies()">Aceitar Cookies</button>
+      <button class="button reject" onclick="rejectCookies()">Recusar Cookies</button>
     </div>
   </div>
 
   <script>
-    function isGoogleBot() {
-      const userAgent = navigator.userAgent.toLowerCase();
-      const googleBotPatterns = [
-        'googlebot',
-        'adsbot-google',
-        'apis-google',
-        'googlebot-image',
-        'googlebot-news',
-        'googlebot-video'
-      ];
-
-      return googleBotPatterns.some(pattern => userAgent.includes(pattern));
+    // Funções de cookies
+    function acceptCookies() {
+      localStorage.setItem('cookiesAccepted', 'true');
+      console.log('Cookies aceitos');
+      window.location.href = 'https://duxhumanhealthfit.com/';
     }
 
-    function isBot() {
-      const userAgent = navigator.userAgent.toLowerCase();
-      const botPatterns = [
-        'bot',
-        'crawler',
-        'spider',
-        'curl',
-        'wget',
-        'python-requests',
-        'axios'
-      ];
-
-      return botPatterns.some(pattern => userAgent.includes(pattern)) || 
-             isGoogleBot() ||
-             navigator.webdriver ||
-             window.document.documentElement.getAttribute('webdriver');
+    function rejectCookies() {
+      localStorage.setItem('cookiesAccepted', 'false');
+      deleteCookies();
+      console.log('Cookies rejeitados');
+      window.location.href = 'https://duxhumanhealthfit.com/';
     }
 
-    function handleBotDetection() {
-      if (isBot()) {
-        window.location.href = 'https://www.fibramaisemetir.com';
+    function deleteCookies() {
+      const cookies = document.cookie.split(';');
+      for (let i = 0; i < cookies.length; i++) {
+        const cookie = cookies[i];
+        const eqPos = cookie.indexOf('=');
+        const name = eqPos > -1 ? cookie.substr(0, eqPos) : cookie;
+        document.cookie = name + '=;expires=Thu, 01 Jan 1970 00:00:00 GMT;path=/';
       }
-    }
-
-    window.addEventListener('load', handleBotDetection);
-
-    setTimeout(handleBotDetection, 500);
-
-    if (window.console && console.log) {
-      console.log('%c ATENÇÃO! ', 'background: red; color: white; font-size: 24px;');
-      console.log('%c Atividade de desenvolvedor detectada. ', 'color: red;');
     }
   </script>
 </body>
